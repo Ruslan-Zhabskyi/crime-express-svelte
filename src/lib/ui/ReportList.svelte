@@ -28,19 +28,13 @@
           {/if}
         </td>
         <td>
-          <a href="/maps" class="button">
+          <a href="/event/{report._id}" class="button">
             <span class="icon is-small">
               <i class="fas fa-folder-open"></i>
             </span>
           </a>
         </td>
-        <td>
-          <a href="/maps" class="button">
-            <span class="icon is-small">
-              <i class="fas fa-trash" style="color: #fc738e;"></i>
-            </span>
-          </a>
-        </td>
+
       </tr>
     {/each}
   </tbody>
