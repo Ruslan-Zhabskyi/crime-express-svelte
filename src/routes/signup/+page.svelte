@@ -8,7 +8,7 @@
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-5">
-          <h1 class="title has-text-centered">Signup to Donation</h1>
+          <h1 class="title has-text-centered">Signup to Crime Epress</h1>
           <div class="box">
             <SignupForm></SignupForm>
             <p class="has-text-centered">Already have an account? <a href="/login" data-cy="login-redirect">Login Here</a></p>
@@ -16,7 +16,7 @@
         </div>
         <div class="column is-6 is-offset-1">
           <figure class="image is-4by3">
-            <img class="object-fit" src="/homer3.png" alt="homer" />
+            <img class="object-fit" src="/ce.png" alt="crime express logo" />
           </figure>
         </div>
       </div>
