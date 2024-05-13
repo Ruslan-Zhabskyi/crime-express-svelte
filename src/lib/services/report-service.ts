@@ -63,11 +63,10 @@ export const reportService = {
       return [];
     }
   },
-
   async getReportById(id: string, session: Session): Promise<Report | null> {
     try {
       axios.defaults.headers.common["Authorization"] = "Bearer " + session.token;
-      const response = await axios.get(`${this.baseUrl}/api/reports/${id}`);
+      const response = await axios.get(this.baseUrl + "/api/reports/" + id);
       console.log('response.data:', response.data); // Debugging line
       return response.data;
     } catch (error) {
