@@ -13,13 +13,36 @@
 	let map: LeafletMap;
 	let mapSatellite: LeafletMap;
 
+	function matchWeatherCode(option) {
+		switch (option) {
+			case "100":
+				return "Clear";
+			case "200":
+				return "Partial clouds";
+			case "300":
+				return "Cloudy";
+			case "400":
+				return "Light Showers";
+			case "500":
+				return "Heavy Showers";
+			case "600":
+				return "Rain";
+			case "700":
+				return "Snow";
+			case "800":
+				return "Thunder";
+			default:
+				return "Unknown code";
+		}
+	};
+
 
 	onMount(async () => {
 
 		report = await reportService.getReportById(data.data.id, get(currentSession));
 		subTitle.set(report.reportName);
-
-		const popup = `${report.reportName}`;
+		const weatherCondition = matchWeatherCode(report.code);
+		const popup = `${report.reportName} occurred on ${report.timestamp}. The weather was ${weatherCondition} with temperature ${report.temperature} C`;
 		map.addMarker(report.lat, report.lng, popup);
 		map.moveTo(report.lat, report.lng);
 		mapSatellite.addMarker(report.lat, report.lng, popup);
@@ -35,6 +58,7 @@
 		<h1>Report name: {report?.reportName}</h1>
 		<p>Description: {report?.description}</p>
 		<p>Location: ({report?.lat}, {report?.lng})</p>
+		<p>Timestamp: {report?.timestamp}</p>
 	</div>
 
 <div class="column">
