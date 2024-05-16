@@ -36,16 +36,22 @@
 		}
 	};
 
-
+	async function getCategoryNameById(id: string): Promise<string> {
+		const categories = await reportService.getCategories(get(currentSession));
+		const category = categories.find(category => category._id === id);
+		return category ? category.categoryName : "Unknown";
+	}
+  let cat1 = "";
 	onMount(async () => {
 
 		report = await reportService.getReportById(data.data.id, get(currentSession));
+		cat1 = await getCategoryNameById(report.category);
 		subTitle.set(report.reportName);
 		const weatherCondition = matchWeatherCode(report.code);
 		const popup = `${report.reportName} occurred on ${report.timestamp}. The weather was ${weatherCondition} with temperature ${report.temperature} C`;
-		map.addMarker(report.lat, report.lng, popup);
+		map.addMarker(report.lat, report.lng, popup, cat1);
 		map.moveTo(report.lat, report.lng);
-		mapSatellite.addMarker(report.lat, report.lng, popup);
+		mapSatellite.addMarker(report.lat, report.lng, popup, cat1);
 		mapSatellite.moveTo(report.lat, report.lng);
 	});
 
@@ -55,10 +61,11 @@
 
 <div class="columns">
 	<div class="column">
-		<h1>Report name: {report?.reportName}</h1>
-		<p>Description: {report?.description}</p>
-		<p>Location: ({report?.lat}, {report?.lng})</p>
-		<p>Timestamp: {report?.timestamp}</p>
+		<h1> Report name: {report?.reportName}</h1>
+		<h1> Event category: {cat1} </h1>
+		<p> Description: {report?.description}</p>
+		<p> Location: ({report?.lat}, {report?.lng})</p>
+		<p> Timestamp: {report?.timestamp}</p>
 	</div>
 
 <div class="column">

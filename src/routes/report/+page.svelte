@@ -29,7 +29,7 @@
     reports.forEach((report: Report) => {
       if (typeof report.category !== "string") {
         const popup = `${report.category.categoryName}: ${report.reportName}`;
-        map.addMarker(report.lat, report.lng, popup);
+        map.addMarker(report.lat, report.lng, popup, report.category.categoryName);
       }
     });
     const lastReport = reports[reports.length - 1];
