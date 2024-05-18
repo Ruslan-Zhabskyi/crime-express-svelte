@@ -8,6 +8,8 @@
   import Card from "$lib/ui/Card.svelte";
   import type { DataSet } from "$lib/types/report-types";
   import { generateByMethod, generateByCategory } from "$lib/services/report-utils";
+  import SignupForm from '../signup/SignupForm.svelte';
+  import Echart from './Echart.svelte';
 
   let totalByMethod: DataSet;
   let reportsByCategory: DataSet;
@@ -22,7 +24,9 @@
     reportsByCategory = generateByCategory(reportList, categories);
   });
 </script>
-
+<div>
+  <Echart></Echart>
+</div>
 <div class="columns">
   <div class="column">
     <Card title="Reports By Category">

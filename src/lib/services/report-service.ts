@@ -67,10 +67,10 @@ export const reportService = {
     try {
       axios.defaults.headers.common["Authorization"] = "Bearer " + session.token;
       const response = await axios.get(this.baseUrl + "/api/reports/" + id);
-      console.log('response.data:', response.data); // Debugging line
+      console.log('response.data:', response.data);
       return response.data;
     } catch (error) {
-      console.log('error:', error); // Debugging line
+      console.log('error:', error);
       return null;
     }
   },
@@ -79,10 +79,10 @@ export const reportService = {
     try {
       axios.defaults.headers.common["Authorization"] = "Bearer " + session.token;
       const response = await axios.put(this.baseUrl + "/api/reports/image/" + id, { imageUrl });
-      console.log('response.data:', response.data); // Debugging line
+      console.log('response.data:', response.data);
       return response.data;
     } catch (error) {
-      console.log('error:', error); // Debugging line
+      console.log('error:', error);
       return null;
     }
   },
@@ -92,7 +92,7 @@ export const reportService = {
       const response = await axios.delete(this.baseUrl + "/api/reports/image/" + id);
       return response.status == 200;
     } catch (error) {
-      console.log('error:', error); // Debugging line
+      console.log('error:', error);
       return false;
     }
   },

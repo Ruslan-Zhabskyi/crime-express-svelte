@@ -33,4 +33,4 @@
 	});
 </script>
 
-<div id="main" style="width: 600px;height:400px;"></div>
+<div id="main" style="width: 1400px;height:400px;"></div>

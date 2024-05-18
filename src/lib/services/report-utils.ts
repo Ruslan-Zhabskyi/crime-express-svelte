@@ -45,3 +45,29 @@ export function generateByCategory(reportList: Report[], categories: Category[])
   });
   return reportsByCategory;
 }
+
+export function generateByDay(reportList: Report[]): DataSet {
+  const reportsByDay: DataSet = {
+    labels: [],
+    datasets: [
+      {
+        values: []
+      }
+    ]
+  };
+  reportList.forEach((report) => {
+
+    const date = report.timestamp.split(',')[0];
+
+    const index = reportsByDay.labels.indexOf(date);
+    if (index === -1) {
+
+      reportsByDay.labels.push(date);
+      reportsByDay.datasets[0].values.push(1);
+    } else {
+
+      reportsByDay.datasets[0].values[index]++;
+    }
+  });
+  return reportsByDay;
+}

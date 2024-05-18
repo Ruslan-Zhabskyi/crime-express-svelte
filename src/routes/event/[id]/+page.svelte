@@ -63,7 +63,7 @@
 		if (result.event === 'success') {
 			info = result.info;
 			imageURL = info.secure_url;
-			// Call the uploadImage method from the report service
+
 			const updatedReport = await reportService.uploadImage(data.data.id, imageURL, get(currentSession));
 			if (updatedReport) {
 				imageURL = updatedReport.imageURL;
@@ -77,10 +77,10 @@
 	async function onDelete () {
 		const success = await reportService.deleteImage(data.data.id, get(currentSession));
 		if (success) {
-			imageURL = null; // Add this line
-			// Show success message or perform other actions
+			imageURL = null;
+
 		} else {
-			// Show error message or perform other actions
+
 		}
 	}
 </script>
