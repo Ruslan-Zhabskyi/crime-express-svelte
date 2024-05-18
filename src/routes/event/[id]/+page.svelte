@@ -62,10 +62,18 @@
 <div class="columns">
 	<div class="column">
 		<h1> Report name: {report?.reportName}</h1>
+		<h1> Report image URL: {report?.imageURL}</h1>
 		<h1> Event category: {cat1} </h1>
 		<p> Description: {report?.description}</p>
 		<p> Location: ({report?.lat}, {report?.lng})</p>
 		<p> Timestamp: {report?.timestamp}</p>
+
+		{#if report?.imageURL}
+			<figure class="image is-4by3">
+				<img class="object-fit" src={report?.imageURL} alt="crime express logo" />
+			</figure>
+		{/if}
+
 	</div>
 
 <div class="column">

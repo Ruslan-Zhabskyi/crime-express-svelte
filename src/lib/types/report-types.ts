@@ -30,6 +30,7 @@ export interface Report {
   pressure: string,
   windDirection: string,
   timestamp: string,
+  imageURL: string,
 }
 
 export interface DataSet {

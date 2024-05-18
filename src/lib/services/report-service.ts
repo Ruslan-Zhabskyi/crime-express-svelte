@@ -75,4 +75,16 @@ export const reportService = {
     }
   },
 
+  async uploadImage(id: string, imageUrl: string, session: Session): Promise<Report | null> {
+    try {
+      axios.defaults.headers.common["Authorization"] = "Bearer " + session.token;
+      const response = await axios.put(this.baseUrl + "/api/reports/image/" + id, { imageUrl });
+      console.log('response.data:', response.data); // Debugging line
+      return response.data;
+    } catch (error) {
+      console.log('error:', error); // Debugging line
+      return null;
+    }
+  },
+
 };
