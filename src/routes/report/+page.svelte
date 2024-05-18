@@ -28,7 +28,18 @@
 
     reports.forEach((report: Report) => {
       if (typeof report.category !== "string") {
-        const popup = `${report.category.categoryName}: ${report.reportName}`;
+        const popup = `
+  <div>
+    ${report.reportName} occurred on ${report.timestamp}.
+    <div style="text-align: center;">
+      <a href="/event/${report._id}">
+        <span class="icon is-small">
+          <i class="fas fa-folder-open"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+`;
         map.addMarker(report.lat, report.lng, popup, report.category.categoryName);
       }
     });
@@ -43,7 +54,18 @@
       reportsByCategory = generateByCategory(reports, categories);
     }
     if (typeof report.category !== "string") {
-      const popup = `${report.category.categoryName}: ${report.reportName}`;
+      const popup = `
+  <div>
+    ${report.reportName} occurred on ${report.timestamp}.
+    <div style="text-align: center;">
+      <a href="/event/${report._id}">
+        <span class="icon is-small">
+          <i class="fas fa-folder-open"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+`;
       map.addMarker(report.lat, report.lng, popup);
       map.moveTo(report.lat, report.lng);
     }
