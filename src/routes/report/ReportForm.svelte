@@ -15,7 +15,7 @@
   let selectedCategory = "";
   let message = "Create Report";
 
-  async function donate() {
+  async function report() {
     if (addedDescription && reportName && selectedCategory) {
       const category = categoryList.find((category) => category._id === selectedCategory);
       if (category) {
@@ -43,7 +43,7 @@
   }
 </script>
 
-<form on:submit|preventDefault={donate}>
+<form on:submit|preventDefault={report}>
   <div class="field">
     <label class="label" for="reportName">Enter Name:</label>
     <input bind:value={reportName} class="input" id="reportName" name="reportName" type="text" />

@@ -49,7 +49,7 @@
   let cat1 = "";
 	onMount(async () => {
 		report = await reportService.getReportById(data.data.id, get(currentSession));
-		imageURL = "";
+		imageURL = report.imageURL;
 		cat1 = await getCategoryNameById(report.category);
 		subTitle.set(report.reportName);
 		const weatherCondition = matchWeatherCode(report.code);
@@ -88,9 +88,9 @@
 		{#if error}
 			<p>Error: {error.status}</p>
 		{/if}
-		{#if report?.imageURL}
+		{#if imageURL}
 			<figure class="image is-4by3">
-				<img class="object-fit" src={report?.imageURL} alt="crime express logo" />
+				<img class="object-fit" src={imageURL} alt="crime express logo" />
 			</figure>
 		{/if}
 
