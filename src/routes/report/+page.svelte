@@ -40,6 +40,7 @@
     </div>
   </div>
 `;
+
         map.addMarker(report.lat, report.lng, popup, report.category.categoryName);
       }
     });
@@ -54,9 +55,7 @@
       reportsByCategory = generateByCategory(reports, categories);
     }
     if (typeof report.category !== "string") {
-      const popup = `
-  <div>
-    ${report.reportName} occurred on ${report.timestamp}.
+      const popup = `<div> ${report.reportName} occurred on ${report.timestamp}.
     <div style="text-align: center;">
       <a href="/event/${report._id}">
         <span class="icon is-small">
