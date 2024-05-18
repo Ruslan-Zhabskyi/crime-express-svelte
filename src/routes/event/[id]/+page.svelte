@@ -73,6 +73,16 @@
 		}
 		widget.close();
 	}
+
+	async function onDelete () {
+		const success = await reportService.deleteImage(data.data.id, get(currentSession));
+		if (success) {
+			imageURL = null; // Add this line
+			// Show success message or perform other actions
+		} else {
+			// Show error message or perform other actions
+		}
+	}
 </script>
 
 
@@ -97,6 +107,7 @@
 		<CldUploadWidget uploadPreset="cyy29psm" let:open let:isLoading {onUpload}>
 			<button on:click={open} disabled={isLoading} class="button is-success is-fullwidth">Upload Image</button>
 		</CldUploadWidget>
+		<button on:click={onDelete} class="button is-danger is-fullwidth">Delete Image</button>
 	</div>
 
 <div class="column">

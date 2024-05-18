@@ -86,5 +86,14 @@ export const reportService = {
       return null;
     }
   },
-
+  async deleteImage(id: string, session: Session): Promise<boolean> {
+    try {
+      axios.defaults.headers.common["Authorization"] = "Bearer " + session.token;
+      const response = await axios.delete(this.baseUrl + "/api/reports/image/" + id);
+      return response.status == 200;
+    } catch (error) {
+      console.log('error:', error); // Debugging line
+      return false;
+    }
+  },
 };
