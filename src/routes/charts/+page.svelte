@@ -25,7 +25,9 @@
   });
 </script>
 <div>
+  <Card title="Reports per Day">
   <Echart></Echart>
+  </Card>
 </div>
 <div class="columns">
   <div class="column">

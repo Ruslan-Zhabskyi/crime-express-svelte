@@ -13,7 +13,7 @@
 		myChart = echarts.init(chartDom);
 
 		const reportList = await reportService.getReports(get(currentSession));
-		const data = generateByDay(reportList); // Generate the data
+		const data = generateByDay(reportList);
 
 		const option = {
 			xAxis: {
