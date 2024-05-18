@@ -3,7 +3,7 @@ import type { Session, User } from "$lib/types/report-types";
 import type { Category, Report } from "$lib/types/report-types";
 
 export const reportService = {
-  baseUrl: "http://localhost:4000",
+  baseUrl: "https://crime-express-hapi.onrender.com",
 
   async signup(user: User): Promise<boolean> {
     try {

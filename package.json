@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.2.0",
-    "@sveltejs/kit": "^2.5.5",
+    "@sveltejs/kit": "^1.0.0-next.587",
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
     "@types/eslint": "^8.56.7",
     "@types/leaflet": "^1.9.9",
@@ -26,7 +26,7 @@
     "leaflet": "^1.9.4",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.2",
-    "svelte": "^4.2.12",
+    "svelte": "^3.54.0",
     "svelte-check": "^3.6.9",
     "svelte-frappe-charts": "^1.10.0",
     "tslib": "^2.6.2",
