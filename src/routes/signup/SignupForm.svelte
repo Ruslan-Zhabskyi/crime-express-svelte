@@ -4,12 +4,34 @@
   import UserCredentials from "$lib/ui/UserCredentials.svelte";
   import UserDetails from "$lib/ui/UserDetails.svelte";
   import Message from "$lib/ui/Message.svelte";
+  import validator from 'validator';
+
   let firstName = "";
   let lastName = "";
   let email = "";
   let password = "";
   let message = "";
+
   async function signup() {
+    // Validate and sanitize the inputs
+    if (!validator.isAlpha(firstName) || !validator.isAlpha(lastName)) {
+      message = "First name and last name must contain only letters";
+      return;
+    }
+    firstName = validator.trim(firstName);
+    lastName = validator.trim(lastName);
+
+    if (!validator.isEmail(email)) {
+      message = "Invalid email";
+      return;
+    }
+    email = validator.normalizeEmail(email);
+
+    if (!validator.isLength(password, { min: 8 })) {
+      message = "Password must be at least 8 characters";
+      return;
+    }
+
     const user = {
       firstName,
       lastName,

@@ -4,13 +4,18 @@
   import { currentSession } from "$lib/stores";
   import Message from "$lib/ui/Message.svelte";
   import UserCredentials from "$lib/ui/UserCredentials.svelte";
+  import validator from 'validator';
 
   let email = "";
   let password = "";
   let message = "";
 
   async function login() {
-    console.log(`attemting to log in email: ${email} with password: ${password}`);
+    if (!validator.isEmail(email)) {
+      message = "Invalid email";
+      return;
+    }
+    email = validator.normalizeEmail(email);
     let session = await reportService.login(email, password);
     if (session) {
       currentSession.set(session);
