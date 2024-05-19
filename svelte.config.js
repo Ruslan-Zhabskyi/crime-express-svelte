@@ -1,13 +1,8 @@
-//import adapter from '@sveltejs/adapter-auto';
-import adapter from "@sveltejs/adapter-netlify";
-import sveltePreprocess from 'svelte-preprocess';
-/** @type {import('@sveltejs/kit').Config} */
+import vercel from '@sveltejs/adapter-vercel';
 const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: sveltePreprocess(),
 	kit: {
-		adapter: adapter()
-	}
+		adapter: vercel(),
+		// rest of the config
+	},
 };
 export default config;
