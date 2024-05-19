@@ -1,7 +1,4 @@
 import type { Category, DataSet, Report } from "$lib/types/report-types";
-import { reportService } from '$lib/services/report-service';
-import { get } from 'svelte/store';
-import { currentSession } from '$lib/stores';
 
 export function generateByMethod(reportList: Report[]): DataSet {
   const totalByMethod: DataSet = {
