@@ -6,7 +6,7 @@
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="/dashboard">
-        <span class="icon"> <i class="fas fa-map-marker-alt"></i></span><span class="icon mr-1"> <i class="fas fa-file"></i></span><span><strong>Report</strong> </span>
+       <span><strong>Hi, {$currentSession.name} </strong> </span>
       </a>
     </div>
     <div id="navbarMenu" class="navbar-menu">
@@ -16,7 +16,7 @@
         <a class="navbar-item" href="/gal"> Gallery </a>
         <a class="navbar-item" href="/charts"> Charts </a>
         <a class="navbar-item" href="/maps"> Maps </a>
-        <a class="navbar-item" href="/logout"> Logout [{$currentSession.name}]</a>
+        <a class="navbar-item" href="/logout"> Logout </a>
       </div>
       <div></div>
     </div>
